@@ -10,10 +10,10 @@ int main()
     {
         if (arr[right] == 1)
             right--;
-        if (arr[left] == 0)
+        else if (arr[left] == 0)
             left++;
         else
-            swap(arr[left], arr[right]);
+            swap(arr[left++], arr[right--]);
         
     }
     for (int i = 0; i < n; i++)
