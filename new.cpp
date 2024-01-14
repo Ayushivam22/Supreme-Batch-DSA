@@ -1,32 +1,34 @@
-// second largest of three numbers
-#include <bits/stdc++.h>
+#include<iostream>
+#include<vector>
 using namespace std;
 
-int main()
-{
-	// your code goes here
-	int t;
-	cin >> t;
-	while (t--)
-	{
-		int x[3]={0};
-		int max = INT_MIN;
-		for (int i = 0; i < 3; i++)
-		{
-			cin >> x[i];
-			if (x[i] > max)
-				max = x[i];
-		}
-		cout<<"MAX"<<max<<endl;
+void SortZeroOne(vector<int>& arr, int size){
+    int start=0;
+    int end=size-1;
+    while(start<=end){
+        if(arr[start]==0){
+            start++;
+        }
 
-		int second = INT_MIN;
-		for (int i = 0; i < 3; i++)
-		{
-			if ((second < x[i]) && (x[i] < max)){
-				second=x[i];
-				cout <<i<<" SECOND"<<second<<endl;
-			}
-		}
-		// cout<<second<<endl;
-	}
+        else if(arr[end]==1){
+            end--;
+        }
+
+        else{
+            swap(arr[start],arr[end]);
+            start++;
+            end--;
+        }
+    }
+    // return arr;
+}
+
+int main(){
+    vector<int> arr={0,1,0,1,1,1,1,1,1,0,1,0,1,1,0,1,1,0,1};
+    int size=10;
+    SortZeroOne(arr,size);
+
+    for(int i=0; i<size; i++){
+        cout<<arr[i];
+    }
 }
