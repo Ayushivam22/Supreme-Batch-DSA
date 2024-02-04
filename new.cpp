@@ -1,51 +1,48 @@
 #include <bits/stdc++.h>
+#include <string.h>
 using namespace std;
-bool isConsonants(char a)
+int compare(string a, string b) {
+    int ans=0;
+    for(int i = 0; i <min(a.length(),b.length()); i++) {
+        if(a[i]<b[i]) return -1;
+        else if(a[i]>b[i]) return 1;
+    }
+    return 0;
+    }
+string lexicographical(string s, int n)
 {
-    if (a == 'a' || a == 'e' || a == 'i' || a == 'o' || a == 'u')
-        return false;
-    return true;
+    string a;
+    a=s;
+    string ans;
+    ans=s;
+    // string ans = a;
+    for (int i = 0; i < n; i++)
+    {
+        a.erase(i, 1);
+        if (compare(a,s)<0){
+            ans.clear();
+            ans=a;
+        }
+    }
+    return ans;
+
 }
 int main()
 {
     // your code goes here
-    /*
-    15
-    schtschurowskia
-        */
     int t;
     cin >> t;
     while (t--)
     {
         int n;
         cin >> n;
-        string S;
-        cin >> S;
-        if(n<4)cout<<"YES"<<endl;
-        else{
-            int i = 0;
-            bool ans = true;
-            while (S[i] != '\0')
-            {
-                int count = 0;
-                for (int j = 0; j < 4; j++)
-                {
-                    if (count >= 4)
-                    {
-                        ans = false;
-                        break;
-                    }
-
-                    if (isConsonants(S[i+j]))
-                        count++;
-                    else exit(0);
-                }
-                i++;
-            }
-            if (ans)
-                cout << "YES" << endl;
-            else
-                cout << "NO" << endl;
-        }
+        char S[n];
+        cin>>S;
+        // for (int i = 0; i < n; i++)
+        // {
+        //     cin >> S[i];
+        // }
+        // cout << strcmp(S, S2);
+        cout<< lexicographical(S,n)<<endl;
     }
 }

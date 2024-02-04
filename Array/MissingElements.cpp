@@ -21,12 +21,13 @@ int Missing(int *arr,int size)
         if (arr[i] > 0)
             ans = i;
     }
+    cout<< arr[ans]<<endl;
     return (ans + 1);
 }
 int main()
 {
-    int arr[5] = {5, 2, 3, 3, 4};
-    cout<<Missing(arr,5)<<endl;
+    int arr[] = {1,2,2,4};
+    cout<<Missing(arr,4)<<endl;
     // cout<<<<endl;
     return 0;
 }
