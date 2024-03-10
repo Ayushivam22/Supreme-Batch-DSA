@@ -2,12 +2,10 @@
 #include<string.h>
 using namespace std;
 int main(){
-    char str[100];
-    for(int i=0; i<10; i++){
-        cin >> str[i];
-    }
-    
-    for(int i=0; i<10; i++){
-        cout << str[i];
-    }
+    string str="";
+    str.insert(0,"aa");
+    str.insert(1,"bb");
+    cout<<str<<endl;
+    cout<<str.size()<<endl;
+
 }
