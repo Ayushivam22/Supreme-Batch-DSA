@@ -5,12 +5,10 @@ bool checksorted(int arr[],int i,int size)
     //base case
     if(arr[i] < arr[i-1])
     {
-        cout<<"false";
         return false;
     }
     if(i>=size) 
     {
-        cout<<"true";
         return true;
     }
     return checksorted(arr,i+1,size);
@@ -26,5 +24,5 @@ int main()
     {
         cin>>arr[i];
     }
-    cout << checksorted(arr, 1,size)<<endl;
+    cout << (checksorted(arr, 1,size)?"YES":"NO")<<endl;
 }

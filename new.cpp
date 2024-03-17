@@ -1,25 +1,43 @@
-#include <bits/stdc++.h>
-#include <string.h>
-using namespace std;
-bool binarysearch(vector<int> arr, int target)
-{
-    int start = 0;
-    int end = arr.size() - 1;
+// Input: nums = [10,21,31]
 
-    while (start < end)
+// Output: 66
+
+// Explanation: The encrypted elements are [11,22,33]. The sum of encrypted elements is 11 + 22 + 33 == 66.
+#include<bits/stdc++.h>
+using namespace std;
+int decrypt(int n)
+{
+    int index = 0;
+    int maxx=INT_MIN;
+    while(n != 0)
     {
-        int mid = (start + end) / 2;
-        if (arr[mid] == target)
-            return true;
-        else if (arr[mid] > target)
-            end = mid - 1;
-        else if (arr[mid] < target)
-            start = mid + 1;
+        int bit = n % 10;
+        if(bit > maxx) maxx = bit;
+        n=n/10;
+        index++;
     }
-    return false;
+    int ans=0;
+    for(int i=0; i<index; i++)
+    {
+        ans = ans*10 + maxx;
+    }
+    return ans;
+}
+int sumOfEncryptedInt(vector<int>& nums) {
+    int sum = 0;
+    for(int i=0; i<nums.size(); i++)
+    {
+        int num = nums[i];
+        sum += decrypt(num);
+    }
+    return sum;
+        
 }
 int main()
 {
-    vector<int> arr = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11};
-    cout << binarysearch(arr, 5);
+    vector<int> nums = {10,21,31};
+    cout << sumOfEncryptedInt(nums) << endl;
+    
+
+    
 }
