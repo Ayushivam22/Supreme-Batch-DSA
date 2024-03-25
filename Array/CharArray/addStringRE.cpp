@@ -29,6 +29,7 @@ string addStrings(string num1, string num2)
 }
 int main()
 {
-    string s1 = "43", s2 = "1";
+    string s1 = "", s2 = "";
+    cin >> s1 >> s2;
     cout << addStrings(s1, s2) << endl;
 }
