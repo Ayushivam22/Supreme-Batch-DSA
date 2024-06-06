@@ -1,5 +1,1 @@
-if(start==end)
-    {
-        start++;
-        end=nums.size()-1;
-    }
+swap(&arr[i++],&arr[left++]);
