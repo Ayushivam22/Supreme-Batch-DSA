@@ -5,8 +5,10 @@ int main()
     int t;cin >> t;
     while(t--)
     {
-        int l,r;
-        cin >> l >> r;
-        cout << r*(r+1)/2 - l*(l-1)/2<<endl; 
+        int n;
+        cin>>n;
+        int ans = n/4;
+        ans += (n%4) / 2;
+        cout<<ans<<endl;
     }
 }
