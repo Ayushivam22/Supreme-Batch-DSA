@@ -1,10 +1,18 @@
-#include <bits/stdc++.h>
+#include<bits/stdc++.h>
 using namespace std;
-int main() {
-	// your code goes here
-    vector<int> v{1,2,3};
-    vector<vector<int>> b;
-    b.push_back(v);
-    cout<<b[0][2]<<endl;
-    return 0;
+bool custom(vector<int>a,vector<int>b)
+{
+    return a[1]>b[1];
+}
+int main()
+{
+    // your code goes here
+       ios::sync_with_stdio(false);
+       cin.tie(nullptr);
+       vector<vector<int>>meet={{5,7},{1,3},{9,10}};
+       sort(meet.begin(),meet.end(),custom);
+       for(auto i:meet)
+       {
+        cout<<i[0]<<" "<<i[1]<<endl;
+       }
 }
