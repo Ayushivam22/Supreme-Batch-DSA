@@ -24,6 +24,14 @@ Node* reverse(Node *head)
     }
     return prev; 
 }
+Node* reverseRecu(Node *current,Node *prev)
+{
+    if(current == NULL)
+        return prev;
+    Node *nextNode = current->next;
+    current->next = prev;
+    return reverseRecu(nextNode,current);
+}
 
 void print(Node *head)
     {
@@ -52,7 +60,8 @@ int main()
     print(head);
     head=reverse(head);
     print(head);
-    cout<<head->data<<endl;
+    head=reverseRecu(head,NULL);
+    print(head);
     
 
 }
